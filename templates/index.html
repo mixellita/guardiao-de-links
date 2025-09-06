@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Guardião de Links</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Guardião de Links</h1>
+            <p>Seu repositório central para links úteis.</p>
+        </header>
+
+        <main>
+            <form action="/adicionar" method="post" class="link-form">
+                <input type="url" name="url_link" placeholder="https://exemplo.com" required>
+                <button type="submit">Salvar Link</button>
+            </form>
+
+            <section class="links-section">
+                <h2>Meus Links Salvos</h2>
+                <ul class="links-list">
+                    {% for link in links %}
+                        <li><a href="{{ link }}" target="_blank">{{ link }}</a></li>
+                    {% else %}
+                        <li>Nenhum link salvo ainda. Adicione um acima!</li>
+                    {% endfor %}
+                </ul>
+            </section>
+        </main>
+    </div>
+</body>
+</html>
