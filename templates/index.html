@@ -23,7 +23,8 @@
                 <h2>Meus Links Salvos</h2>
                 <ul class="links-list">
                     {% for link in links %}
-                        <li><a href="{{ link }}" target="_blank">{{ link }}</a></li>
+                        {# A MUDANÇA ESTÁ AQUI: usamos link.url em vez de só link #}
+                        <li><a href="{{ link.url }}" target="_blank">{{ link.url }}</a></li>
                     {% else %}
                         <li>Nenhum link salvo ainda. Adicione um acima!</li>
                     {% endfor %}
